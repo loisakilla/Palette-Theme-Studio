@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { RootState } from '../store'
+import type {RootState} from '../store'
 
 export default function PalettePreview() {
   const colors = useSelector((state: RootState) => state.palette.colors)

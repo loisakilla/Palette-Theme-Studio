@@ -1,6 +1,6 @@
-import { ChangeEvent, useCallback } from 'react'
+import {type ChangeEvent, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../store'
+import type {AppDispatch} from '../store'
 import { setColors } from '../features/paletteSlice'
 import { extractPalette } from '../utils/palette'
 

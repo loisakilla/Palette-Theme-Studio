@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { RootState } from '../store'
+import type {RootState} from '../store'
 import { buildCssVariables, buildJson } from '../utils/palette'
 
 function download(filename: string, content: string) {
