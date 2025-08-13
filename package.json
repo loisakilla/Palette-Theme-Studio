@@ -11,13 +11,16 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@react-three/fiber": "^9.3.0",
     "@reduxjs/toolkit": "^2.8.2",
+    "gsap": "^3.12.5",
     "quantize": "^1.0.2",
     "react": "^19.1.1",
+    "react-animated-cursor": "^2.11.2",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
-    "tinycolor2": "^1.6.0",
-    "gsap": "^3.12.5"
+    "three": "^0.179.1",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

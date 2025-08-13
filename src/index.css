@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Press Start 2P', cursive, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -48,15 +48,19 @@ button {
 .landing-container {
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
 .landing-sections {
-  display: flex;
-  height: 100%;
+  position: relative;
+  width: 300vw;
+  height: 400vh;
 }
 
 .panel {
-  flex: 0 0 100vw;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
