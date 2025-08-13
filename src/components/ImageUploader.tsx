@@ -1,10 +1,14 @@
-import { type ChangeEvent, useCallback, useState } from 'react'
+import { type ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import type { AppDispatch } from '../store'
 import { setColors } from '../features/paletteSlice'
 import { extractPalette } from '../utils/palette'
 
-export default function ImageUploader() {
+interface ImageUploaderProps {
+  initialFile?: File | null
+}
+
+export default function ImageUploader({ initialFile }: ImageUploaderProps) {
   const dispatch = useDispatch<AppDispatch>()
   const [preview, setPreview] = useState<string | null>(null)
 
@@ -24,6 +28,12 @@ export default function ImageUploader() {
     const file = e.target.files?.[0] || null
     void handleFile(file)
   }
+
+  useEffect(() => {
+    if (initialFile) {
+      void handleFile(initialFile)
+    }
+  }, [initialFile, handleFile])
 
   return (
     <div>
