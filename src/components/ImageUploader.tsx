@@ -1,19 +1,23 @@
-import {type ChangeEvent, useCallback } from 'react'
+import { type ChangeEvent, useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import type {AppDispatch} from '../store'
+import type { AppDispatch } from '../store'
 import { setColors } from '../features/paletteSlice'
 import { extractPalette } from '../utils/palette'
 
 export default function ImageUploader() {
   const dispatch = useDispatch<AppDispatch>()
+  const [preview, setPreview] = useState<string | null>(null)
 
   const handleFile = useCallback(
     async (file: File | null) => {
       if (!file) return
+      if (preview) URL.revokeObjectURL(preview)
+      const url = URL.createObjectURL(file)
+      setPreview(url)
       const colors = await extractPalette(file)
       dispatch(setColors(colors))
     },
-    [dispatch],
+    [dispatch, preview],
   )
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +28,13 @@ export default function ImageUploader() {
   return (
     <div>
       <input type="file" accept="image/*" onChange={onChange} />
+      {preview && (
+        <img
+          src={preview}
+          alt="preview"
+          style={{ maxWidth: '300px', marginTop: '1rem', display: 'block' }}
+        />
+      )}
     </div>
   )
 }
