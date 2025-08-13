@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MouseFollower } from 'react-mouse-follower'
+import CustomCursor from './components/CustomCursor'
 import ImageUploader from './components/ImageUploader'
 import PalettePreview from './components/PalettePreview'
 import TokenExport from './components/TokenExport'
@@ -11,7 +11,8 @@ export default function App() {
 
   return (
     <>
-      <MouseFollower />
+
+      <CustomCursor />
       {!started ? (
         <LandingPage
           onStart={(file) => {
